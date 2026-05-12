@@ -16,12 +16,12 @@ public class CorsConfig {
             public void addCorsMappings(
                     CorsRegistry registry) {
 
-                registry.addMapping("/**")
-                        .allowedOrigins(
-                                "http://localhost:5173",
-                             "https://ai-news-summary-frontend-model-pvso8j4fu-melonmusk20s-projects.vercel.app"
-                        )
-                        .allowedMethods("*");
+               registry.addMapping("/**")
+                       .allowedOrigins(
+                              "http://localhost:5173",
+                              "https://ai-news-summary-frontend-model.vercel.app"
+        )
+        .allowedMethods("*");
             }
         };
     }
