@@ -8,4 +8,5 @@ import java.util.List;
 public class NewsResponse {
 
     private List<NewsArticleDto> results;
+    private String nextPage;
 }
