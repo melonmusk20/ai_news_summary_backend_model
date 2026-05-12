@@ -57,6 +57,7 @@ App starts on `http://localhost:8080`
 
 ## Structure
 
+```
 ai_news_summary_backend_model/
 │
 ├── Dockerfile
@@ -96,7 +97,7 @@ ai_news_summary_backend_model/
         │
         └── resources/
             └── application.properties           # App config (DB, API keys, port)
-
+```
 ## Data Pipeline
 
 1. Fetches up to 5 pages of technology news from NewsData.io
