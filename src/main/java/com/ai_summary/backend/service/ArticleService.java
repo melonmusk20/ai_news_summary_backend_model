@@ -5,6 +5,7 @@ import com.ai_summary.backend.dto.NewsResponse;
 import com.ai_summary.backend.model.Article;
 import com.ai_summary.backend.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
+import com.ai_summary.backend.util.TextCleaner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +44,7 @@ public class ArticleService {
                     Article article = new Article();
                     article.setTitle(dto.getTitle());
 
-                    String content = dto.getDescription();
-                    if (content == null) content = "";
+                   String content = TextCleaner.clean(dto.getDescription());
                     article.setContent(content);
 
                     article.setSummary(
