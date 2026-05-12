@@ -55,6 +55,48 @@ App starts on `http://localhost:8080`
 | GET | `/fetch-news` | Fetch fresh news, process with AI, save to DB |
 | GET | `/articles` | Return all stored articles |
 
+## Structure
+
+ai_news_summary_backend_model/
+│
+├── Dockerfile
+├── pom.xml                          # Spring Boot 4.0.6, Java 21
+├── .env.example
+│
+└── src/
+    └── main/
+        ├── java/com/ai_summary/backend/
+        │   │
+        │   ├── BackendApplication.java          # Entry point
+        │   │
+        │   ├── config/
+        │   │   └── CorsConfig.java              # CORS configuration
+        │   │
+        │   ├── controller/
+        │   │   └── NewsController.java          # REST API endpoints
+        │   │
+        │   ├── service/
+        │   │   ├── Aiservice.java               # Groq AI integration (summarization)
+        │   │   ├── ArticleProcessor.java        # Article processing logic
+        │   │   ├── ArticleService.java          # Business logic for articles
+        │   │   └── NewsApiService.java          # NewsData.io API integration
+        │   │
+        │   ├── model/
+        │   │   └── Article.java                 # JPA Entity (DB table)
+        │   │
+        │   ├── dto/
+        │   │   ├── NewsArticleDto.java          # DTO for news article data
+        │   │   └── NewsResponse.java            # DTO for API response
+        │   │
+        │   ├── repository/
+        │   │   └── ArticleRepository.java       # JPA Repository (DB queries)
+        │   │
+        │   └── util/
+        │       └── TextCleaner.java             # Text cleanup utility
+        │
+        └── resources/
+            └── application.properties           # App config (DB, API keys, port)
+
 ## Data Pipeline
 
 1. Fetches up to 5 pages of technology news from NewsData.io
